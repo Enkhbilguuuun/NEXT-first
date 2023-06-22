@@ -1,7 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-export default async function handler(req, res) {
-const result = await fetch("https://ap-south-1.aws.data.mongodb-api.com/app/data-zjiug/endpoint/data/v1/action/find", {
+export async function mongoDataApiRequest( action, options){
+    const result = await fetch(`https://ap-south-1.aws.data.mongodb-api.com/app/data-zjiug/endpoint/data/v1/action/${action}`, {
   method: "POST",
   headers: {
     'Content-Type': 'application/json',
@@ -11,8 +9,9 @@ const result = await fetch("https://ap-south-1.aws.data.mongodb-api.com/app/data
     collection:"users",
     database:"test",
     dataSource:"Cluster0",
+    ...options
   }),
 }).then((res) => res.json());
 
-  res.status(200).json(result)
+return result
 }
