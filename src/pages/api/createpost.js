@@ -3,9 +3,14 @@
 import { mongoDataApiRequest } from "@/utils/mongoDataApiRequest";
 
 export default async function handler(req, res) {
-  const result = await mongoDataApiRequest('insertOne', {document: {
-    text: "Do the dishes"
-  }})
+
+
+const {id} = req.query;
+const data = req.body;
+
+
+  const result = await mongoDataApiRequest('insertOne', {document: data})
+  console.log(data)
 
   res.status(200).json(result)
 }
