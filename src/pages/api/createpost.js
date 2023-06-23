@@ -4,6 +4,10 @@ import { mongoDataApiRequest } from "@/utils/mongoDataApiRequest";
 
 export default async function handler(req, res) {
 
+  if (req.method !== "POST") {
+    res.status(405).end();
+    return;
+}
 
 const {id} = req.query;
 const data = req.body;
