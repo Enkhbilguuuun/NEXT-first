@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 }
 
   const {id} = req.query;
-  const data = req.body;
+  const {text} = req.body;
 
   const result = await mongoDataApiRequest('deleteOne', {filter: {
     _id: { $oid: id } 

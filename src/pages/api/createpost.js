@@ -10,11 +10,11 @@ export default async function handler(req, res) {
 }
 
 const {id} = req.query;
-const data = req.body;
+const {text} = req.body;
 
 
-  const result = await mongoDataApiRequest('insertOne', {document: data})
-  console.log(data)
+  const result = await mongoDataApiRequest('insertOne', {document: {text: text}})
+  console.log(text)
 
   res.status(200).json(result)
 }

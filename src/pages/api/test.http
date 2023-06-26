@@ -3,3 +3,7 @@ POST http://localhost:3000/api/createpost
 ###
 
 http://localhost:3000/api/getpost
+
+###
+
+DELETE http://192.168.4.150:3000/api/deletepost?id=63d23eeb7bce6db21567f82f
